@@ -3,10 +3,12 @@ import {query, collection, orderBy, onSnapshot, limit, QuerySnapshot} from 'fire
 import { db } from '@/lib/firebase'
 import { useEffect, useRef, useState } from 'react'
 import Message from '../Message/Message'
+import moment from 'moment/moment'
 
 export default function ChatHistory() {
     const [messages, setMessages]= useState([])
     const scrollRef=useRef(null)
+    
     useEffect(()=>{
         const q= query(
             collection(db, 'messages'),
@@ -17,6 +19,8 @@ export default function ChatHistory() {
         const unsubscribe= onSnapshot(q, (QuerySnapshot)=>{
             const fetchedMessages=[]
             QuerySnapshot.forEach(doc=>{
+                
+                const elapsedtime= doc.data().createdAt
                 fetchedMessages.push({...doc.data(), id:doc.id})
                 
             })
@@ -33,9 +37,9 @@ export default function ChatHistory() {
 
    return (
        <div className="chathistory">
-           chatHistory
+        
            {messages?.map(message=>(
-                <Message key={message.id} message={message}/>
+                <Message key={message.id} message={message} />
            ))}
            <div ref={scrollRef}></div>
        </div>

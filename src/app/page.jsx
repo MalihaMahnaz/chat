@@ -8,15 +8,18 @@ export default function Home() {
 
   if(session && session.user)
     {
-      return(<>
+      return(<div className="container">
             <Dashboard />
-        </>
+        </div>
         )
-    }
+    }else{
   return (
     <div className="container">
-      Welcome, It's time to sign in.
+      <div className="changeme">
+      Welcome, It's time to sign in 
       <button onClick={()=>signIn('google')}>Sign in</button>
+      </div>
     </div>
   );
+}
 }

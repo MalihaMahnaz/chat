@@ -6,3 +6,10 @@
     align-items: center;
     height: 100%;
 }
+
+@media(max-width: 1024px){
+    .chat{
+    justify-content: center;
+    width: 100%;
+    }
+}
