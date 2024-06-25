@@ -42,11 +42,11 @@ export default function SendMessage() {
     }
   });
 
-  if(message==''&& img.file==null &&recordedUrl==null){
-    setIsDisabled(true)
-  }else{
-    setIsDisabled(false)
-  }
+  // if(message==''&& img.file==null &&recordedUrl==null){
+  //   setIsDisabled(true)
+  // }else{
+  //   setIsDisabled(false)
+  // }
 
   const handleVoice = () => {
     setStartVoice(!startVoice);
@@ -252,7 +252,7 @@ export default function SendMessage() {
               />
             </div>
           </div>
-          <button disabled={isDisabled} className="sendButton">Send</button>
+          <button className="sendButton">Send</button>
         </div>
       </form>
       <div></div>
