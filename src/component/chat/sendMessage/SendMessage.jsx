@@ -22,7 +22,7 @@ export default function SendMessage() {
   });
   const [voiceblob, setVoiceblob] = useState(null);
   const [noMic, setNomic] = useState(false);
-  const [isDisabled, setIsDisabled]= useState(true)
+
   const [open, setOpen] = useState(false);
   const [recordedUrl, setRecordedUrl] = useState("");
   const [startVoice, setStartVoice] = useState(false);
@@ -41,12 +41,6 @@ export default function SendMessage() {
       setOpen(false);
     }
   });
-
-  // if(message==''&& img.file==null &&recordedUrl==null){
-  //   setIsDisabled(true)
-  // }else{
-  //   setIsDisabled(false)
-  // }
 
   const handleVoice = () => {
     setStartVoice(!startVoice);
